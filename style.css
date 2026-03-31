@@ -1,0 +1,238 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f1e9;
+  color: #1c1c1c;
+  line-height: 1.6;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 0;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-intro h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.section-intro p {
+  color: #555;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* BUTTON */
+.primary-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #1f5c3a;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.primary-button:hover {
+  background: #174a2f;
+  transform: translateY(-2px);
+}
+
+/* ===================== */
+/* VIDEO EXPERIENCE GRID */
+/* ===================== */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.video-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 420px;
+  transition: transform 0.4s ease;
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  color: white;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  width: 100%;
+}
+
+.video-overlay h3 {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.video-overlay p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.video-tag {
+  font-size: 11px;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* ===================== */
+/* INSTAGRAM GRID */
+/* ===================== */
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.instagram-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 260px;
+  text-decoration: none;
+  color: white;
+}
+
+.instagram-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.instagram-card:hover img {
+  transform: scale(1.05);
+}
+
+.instagram-overlay {
+  position: absolute;
+  bottom: 0;
+  padding: 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.instagram-overlay h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.instagram-overlay p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.instagram-cta-wrap {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* ===================== */
+/* CONTACT / FORM */
+/* ===================== */
+
+.form-note {
+  font-size: 13px;
+  color: #666;
+  margin-top: 12px;
+}
+
+/* ===================== */
+/* SUBTLE ANIMATION */
+/* ===================== */
+
+.video-card,
+.instagram-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.video-card:nth-child(1),
+.instagram-card:nth-child(1) { animation-delay: 0.1s; }
+.video-card:nth-child(2),
+.instagram-card:nth-child(2) { animation-delay: 0.2s; }
+.video-card:nth-child(3),
+.instagram-card:nth-child(3) { animation-delay: 0.3s; }
+.video-card:nth-child(4),
+.instagram-card:nth-child(4) { animation-delay: 0.4s; }
+.instagram-card:nth-child(5) { animation-delay: 0.5s; }
+.instagram-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== */
+/* MOBILE OPTIMIZATION */
+/* ===================== */
+
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-intro h2 {
+    font-size: 22px;
+  }
+
+  .video-card {
+    height: 320px;
+  }
+
+  .instagram-card {
+    height: 200px;
+  }
+
+  .instagram-grid {
+    grid-template-columns: 1fr;
+  }
+}
