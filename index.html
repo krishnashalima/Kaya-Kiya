@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaya-Kiya Unscripted Journeys</title>
+  <meta name="description" content="Curated travel experiences designed around moments, not itineraries." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f7f3ee;
+      --surface: #ffffff;
+      --text: #1f1f1f;
+      --muted: #5f5f5f;
+      --accent: #1f4d3a;
+      --accent-light: #dfe9e3;
+      --border: #e8e1d8;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    .section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)),
+        url("images/hero.jpg") center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 32px 60px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-button,
+    .primary-button,
+    .secondary-button {
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 999px;
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-button {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .primary-button {
+      background: white;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 24px;
+    }
+
+    .secondary-button {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.4);
+      margin-left: 12px;
+    }
+
+    .nav-button:hover,
+    .primary-button:hover,
+    .secondary-button:hover,
+    .submit-button:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+
+    .hero-content {
+      max-width: 700px;
+      margin-top: auto;
+      padding-bottom: 30px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    .hero-text {
+      font-size: 1.2rem;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .philosophy,
+    .contact-intro {
+      text-align: center;
+    }
+
+    .philosophy .container {
+      max-width: 900px;
+    }
+
+    .philosophy h2,
+    .experiences h2,
+    .featured h2,
+    .signature h2,
+    .luxury h2,
+    .audience h2,
+    .gallery h2,
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .philosophy p,
+    .contact-intro p {
+      max-width: 800px;
+      margin: 0 auto 16px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .card-grid,
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .card,
+    .audience-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover,
+    .audience-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3,
+    .audience-card h3 {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
+
+    .card p,
+    .audience-card p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .featured-box,
+    .luxury-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .featured-box p,
+    .luxury-box p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .featured-box ul,
+    .luxury-box ul,
+    .signature-list ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .featured-box li,
+    .luxury-box li,
+    .signature-list li {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .signature-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .signature-list,
+    .signature-image {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .signature-list {
+      padding: 36px;
+    }
+
+    .signature-image {
+      min-height: 420px;
+      background:
+        linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
+        url("images/signature.jpg") center/cover no-repeat;
+    }
+
+    .luxury-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 26px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      min-height: 290px;
+      border-radius: 22px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.40), rgba(0,0,0,0.05));
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      color: white;
+      z-index: 2;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .contact {
+      background: var(--surface);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      margin-top: 30px;
+      align-items: start;
+    }
+
+    .contact-card,
+    .form-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .contact-card h3,
+    .form-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #d8d0c6;
+      background: white;
+      font: inherit;
+      outline: none;
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      background: var(--accent);
+      color: white;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .form-note {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px 50px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+      background: #f3eee7;
+    }
+
+    @media (max-width: 980px) {
+      .card-grid,
+      .gallery-grid,
+      .luxury-grid,
+      .contact-wrap,
+      .signature-layout,
+      .audience-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .signature-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .signature-image {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 20px 20px 50px;
+      }
+
+      .card-grid,
+      .gallery-grid,
+      .luxury-grid,
+      .contact-wrap,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 16px;
+      }
+
+      .featured-box,
+      .luxury-box,
+      .signature-list,
+      .contact-card,
+      .form-card,
+      .audience-card {
+        padding: 24px;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .secondary-button {
+        margin-left: 0;
+      }
+
+      .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">Kaya-Kiya</div>
+      <div class="nav-links">
+        <a href="#contact" class="nav-button">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">Kaya-Kiya Voyages</p>
+      <h1>Unscripted Journeys</h1>
+      <p class="hero-text">
+        Designed for those who want to feel, not just travel.
+      </p>
+      <div class="hero-actions">
+        <a href="#experiences" class="primary-button">Explore Experiences</a>
+        <a href="#contact" class="secondary-button">Enquire Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="philosophy section">
+      <div class="container">
+        <h2>Our Philosophy</h2>
+        <p>
+          In a world chasing perfect pictures, we create imperfect, unforgettable moments.
+          Not everything is planned — and that’s where the magic begins.
+        </p>
+        <p>
+          Kaya-Kiya is not about ticking destinations off a list. It is about slowing down,
+          feeling deeply, and truly being present.
+        </p>
+      </div>
+    </section>
+
+    <section id="experiences" class="experiences section">
+      <div class="container">
+        <h2>Experiences</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>India Experiences</h3>
+            <p>Curated journeys through culture, nature, stillness, and depth.</p>
+          </article>
+
+          <article class="card">
+            <h3>Global Experiences</h3>
+            <p>Europe journeys, border-country escapes, and slow travel moments.</p>
+          </article>
+
+          <article class="card">
+            <h3>Signature Moments</h3>
+            <p>Surprise dinners, proposals, romantic setups, and hidden experiences.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured section">
+      <div class="container">
+        <div class="featured-box">
+          <p class="eyebrow">Featured Experience</p>
+          <h2>Kerala Unscripted Escape</h2>
+          <p>
+            A curated 5-day journey through presence, culture, hidden moments, and slow immersion.
+          </p>
+          <ul>
+            <li>Private arrival and soft landing</li>
+            <li>Slow cultural immersion</li>
+            <li>One hidden signature experience</li>
+            <li>Optional wellness and personal flow day</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature section">
+      <div class="container">
+        <h2>Signature Experiences</h2>
+        <div class="signature-layout">
+          <div class="signature-list">
+            <p>
+              Every Kaya-Kiya journey includes elements that are felt, not just seen:
+            </p>
+            <ul>
+              <li>Hidden dinners in unexpected locations</li>
+              <li>Surprise experiences beyond the itinerary</li>
+              <li>Slow mornings and intentional pauses</li>
+              <li>Local cultural immersion and real-life encounters</li>
+              <li>Personalized moments based on individual preferences</li>
+              <li>Candid photography capturing real emotions</li>
+            </ul>
+          </div>
+          <div class="signature-image"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="luxury section">
+      <div class="container">
+        <h2>Elevated & Luxury Experiences</h2>
+        <div class="luxury-grid">
+          <div class="luxury-box">
+            <h3>Curated Premium Escapes</h3>
+            <p>
+              Designed for travelers who value privacy, atmosphere, and intentional detail.
+            </p>
+            <ul>
+              <li>Private stays and premium property selections</li>
+              <li>Curated couple journeys and celebration escapes</li>
+              <li>Slow luxury rather than rushed sightseeing</li>
+              <li>Optional dining, styling, and storytelling add-ons</li>
+            </ul>
+          </div>
+
+          <div class="luxury-box">
+            <h3>Special Occasion Experiences</h3>
+            <p>
+              Built for proposals, anniversaries, intimate dinners, and milestone memories.
+            </p>
+            <ul>
+              <li>Romantic dinner setups</li>
+              <li>Destination surprise planning</li>
+              <li>Personalized experience curation</li>
+              <li>Future Paris / Europe signature moments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience section">
+      <div class="container">
+        <h2>Who This Is For</h2>
+        <div class="audience-grid">
+          <div class="audience-card">
+            <h3>Couples</h3>
+            <p>For meaningful escapes, intimate celebrations, and shared memories that feel personal.</p>
+          </div>
+          <div class="audience-card">
+            <h3>Solo Travelers</h3>
+            <p>For those seeking depth, calm, reflection, and a journey that feels emotionally rich.</p>
+          </div>
+          <div class="audience-card">
+            <h3>Curated Groups</h3>
+            <p>For premium small groups who want connection, atmosphere, and thoughtful experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section">
+      <div class="container">
+        <h2>Moments We Believe In</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery1.jpg');">
+            <span class="gallery-caption">Unplanned</span>
+          </div>
+          <div class="gallery-item" style="background-image: url('images/gallery2.jpg');">
+            <span class="gallery-caption">Freedom</span>
+          </div>
+          <div class="gallery-item" style="background-image: url('images/gallery3.jpg');">
+            <span class="gallery-caption">Stillness</span>
+          </div>
+          <div class="gallery-item" style="background-image: url('images/gallery4.jpg');">
+            <span class="gallery-caption">Connection</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="contact-intro">
+          <h2>Start Your Journey</h2>
+          <p>
+            We don’t plan trips. We design moments you didn’t know you needed.
+          </p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-card">
+            <h3>Get in Touch</h3>
+            <p>Tell us what kind of experience you’re dreaming of, and we’ll begin shaping it with you.</p>
+            <p>Email: <a href="mailto:krishna2214617@email.com">krishna2214617@email.com</a></p>
+            <p>Based in Germany &amp; India</p>
+            <p>WhatsApp support coming soon.</p>
+            <p>Response time: usually within 24–48 hours.</p>
+          </div>
+
+          <div class="form-card">
+            <h3>Enquiry Form</h3>
+
+            <!-- Replace the action URL below with your Formspree form URL later -->
+            <form action="https://formspree.io/f/xwvwbaej" method="POST">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your email address" required />
+              </div>
+
+              <div class="form-group">
+                <label for="experience">Experience Type</label>
+                <select id="experience" name="experience" required>
+                  <option value="">Select an option</option>
+                  <option>India Experience</option>
+                  <option>Global Experience</option>
+                  <option>Signature / Surprise Experience</option>
+                  <option>Luxury / Celebration Experience</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell us what you have in mind</label>
+                <textarea id="message" name="message" placeholder="Destination, mood, occasion, preferred dates, or anything important..." required></textarea>
+              </div>
+
+              <input type="hidden" name="_subject" value="New Kaya-Kiya Enquiry" />
+              <input type="hidden" name="_next" value="thank-you.html" />
+
+              <button type="submit" class="submit-button">Send Enquiry</button>
+              <p class="form-note">Once Formspree is connected, enquiries will arrive directly in your email inbox.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Kaya-Kiya Voyages — Unscripted Journeys
+  </footer>
+
+  <a href="#" class="whatsapp-float" title="WhatsApp coming soon">WhatsApp Soon</a>
+
+</body>
+</html>
