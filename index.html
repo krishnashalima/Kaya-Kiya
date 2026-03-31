@@ -14,14 +14,19 @@
     }
 
     :root {
-      --bg: #f7f3ee;
-      --surface: #ffffff;
-      --text: #1f1f1f;
-      --muted: #5f5f5f;
-      --accent: #1f4d3a;
-      --accent-light: #dfe9e3;
-      --border: #e8e1d8;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --bg: #f4efe6;
+      --bg-soft: #efe7d8;
+      --surface: rgba(255, 252, 247, 0.88);
+      --surface-strong: #fffaf2;
+      --text: #1f1b16;
+      --muted: #5f594f;
+      --accent: #1f5a43;
+      --accent-dark: #174733;
+      --accent-light: #dce9e1;
+      --gold: #b88b3b;
+      --border: rgba(120, 95, 60, 0.14);
+      --shadow: 0 14px 40px rgba(42, 29, 10, 0.08);
+      --radius: 24px;
     }
 
     html {
@@ -30,118 +35,148 @@
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(184,139,59,0.08), transparent 30%),
+        radial-gradient(circle at top right, rgba(31,90,67,0.06), transparent 28%),
+        linear-gradient(to bottom, #f7f1e8 0%, #f2eadf 52%, #f7f2ea 100%);
     }
 
     h1, h2, h3 {
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .section {
-      padding: 80px 20px;
+      padding: 82px 20px;
     }
 
     .container {
-      width: min(1120px, 92%);
+      width: min(1140px, 92%);
       margin: 0 auto;
     }
 
     .hero {
       min-height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)),
+        linear-gradient(rgba(18, 12, 6, 0.48), rgba(18, 12, 6, 0.48)),
         url("images/hero.jpg") center/cover no-repeat;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 24px 32px 60px;
+      padding: 26px 34px 62px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, rgba(244,239,230,0.92));
+      pointer-events: none;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .logo {
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
     }
 
     .nav-links {
       display: flex;
       gap: 12px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .nav-button,
     .primary-button,
-    .secondary-button {
+    .secondary-button,
+    .submit-button {
       text-decoration: none;
       display: inline-block;
       border-radius: 999px;
-      padding: 12px 24px;
+      padding: 13px 24px;
       transition: all 0.3s ease;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       border: none;
       cursor: pointer;
+      font-weight: 600;
     }
 
     .nav-button {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.14);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      backdrop-filter: blur(4px);
     }
 
     .primary-button {
       background: white;
       color: var(--accent);
-      font-weight: 600;
       margin-top: 24px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
     }
 
     .secondary-button {
       background: transparent;
       color: white;
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.42);
       margin-left: 12px;
+    }
+
+    .submit-button {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 10px 22px rgba(31,90,67,0.18);
     }
 
     .nav-button:hover,
     .primary-button:hover,
     .secondary-button:hover,
-    .submit-button:hover {
-      opacity: 0.95;
+    .submit-button:hover,
+    .whatsapp-float:hover {
+      opacity: 0.96;
       transform: translateY(-2px);
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 720px;
       margin-top: auto;
-      padding-bottom: 30px;
+      padding-bottom: 36px;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       margin-bottom: 14px;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-size: clamp(2.9rem, 6vw, 5.8rem);
       margin-bottom: 16px;
-      max-width: 620px;
+      max-width: 650px;
     }
 
     .hero-text {
       font-size: 1.2rem;
       max-width: 560px;
+      color: rgba(255,255,255,0.94);
     }
 
     .hero-actions {
@@ -157,7 +192,7 @@
     }
 
     .philosophy .container {
-      max-width: 900px;
+      max-width: 940px;
     }
 
     .philosophy h2,
@@ -168,16 +203,24 @@
     .audience h2,
     .gallery h2,
     .contact h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
+      color: #1d1b17;
     }
 
     .philosophy p,
     .contact-intro p {
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto 16px;
       color: var(--muted);
       font-size: 1.08rem;
+    }
+
+    .section-block {
+      background: rgba(255, 249, 241, 0.55);
+      border: 1px solid rgba(184,139,59,0.08);
+      border-radius: 30px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
     }
 
     .card-grid,
@@ -189,47 +232,55 @@
     }
 
     .card,
-    .audience-card {
+    .audience-card,
+    .featured-box,
+    .luxury-box,
+    .signature-list,
+    .contact-card,
+    .form-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(3px);
+    }
+
+    .card,
+    .audience-card {
       padding: 28px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card:hover,
-    .audience-card:hover {
+    .audience-card:hover,
+    .gallery-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 18px 36px rgba(42, 29, 10, 0.10);
     }
 
     .card h3,
-    .audience-card h3 {
+    .audience-card h3,
+    .luxury-box h3,
+    .contact-card h3,
+    .form-card h3 {
       margin-bottom: 12px;
       color: var(--accent);
       font-size: 1.35rem;
     }
 
     .card p,
-    .audience-card p {
+    .audience-card p,
+    .featured-box p,
+    .luxury-box p,
+    .contact-card p,
+    .form-note {
       color: var(--muted);
       font-size: 1rem;
     }
 
     .featured-box,
     .luxury-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
       padding: 40px;
-      box-shadow: var(--shadow);
-    }
-
-    .featured-box p,
-    .luxury-box p {
-      color: var(--muted);
-      font-size: 1.05rem;
     }
 
     .featured-box ul,
@@ -256,10 +307,6 @@
 
     .signature-list,
     .signature-image {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
@@ -269,9 +316,12 @@
 
     .signature-image {
       min-height: 420px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       background:
-        linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
+        linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)),
         url("images/signature.jpg") center/cover no-repeat;
+      border: 1px solid var(--border);
     }
 
     .luxury-grid {
@@ -295,19 +345,16 @@
       background-size: cover;
       background-position: center;
       position: relative;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(42, 29, 10, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.4);
     }
 
     .gallery-item::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.40), rgba(0,0,0,0.05));
+      background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.05));
     }
 
     .gallery-caption {
@@ -321,10 +368,6 @@
       letter-spacing: 0.03em;
     }
 
-    .contact {
-      background: var(--surface);
-    }
-
     .contact-wrap {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -335,22 +378,8 @@
 
     .contact-card,
     .form-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 24px;
       padding: 32px;
-    }
-
-    .contact-card h3,
-    .form-card h3 {
-      margin-bottom: 14px;
-      font-size: 1.4rem;
-      color: var(--accent);
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      margin-bottom: 12px;
+      background: rgba(252, 247, 239, 0.92);
     }
 
     .contact-card a {
@@ -372,6 +401,7 @@
       margin-bottom: 8px;
       font-weight: 600;
       font-size: 0.95rem;
+      color: #27231d;
     }
 
     .form-group input,
@@ -380,10 +410,18 @@
       width: 100%;
       padding: 14px 16px;
       border-radius: 14px;
-      border: 1px solid #d8d0c6;
-      background: white;
+      border: 1px solid rgba(100, 80, 48, 0.18);
+      background: rgba(255,255,255,0.92);
       font: inherit;
       outline: none;
+      color: var(--text);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: rgba(31,90,67,0.45);
+      box-shadow: 0 0 0 4px rgba(31,90,67,0.08);
     }
 
     .form-group textarea {
@@ -391,21 +429,9 @@
       resize: vertical;
     }
 
-    .submit-button {
-      background: var(--accent);
-      color: white;
-      padding: 14px 22px;
-      border: none;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
     .form-note {
       margin-top: 12px;
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     .whatsapp-float {
@@ -418,13 +444,9 @@
       padding: 14px 18px;
       border-radius: 999px;
       font-weight: 600;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.16);
       z-index: 999;
       transition: 0.3s ease;
-    }
-
-    .whatsapp-float:hover {
-      transform: translateY(-3px);
     }
 
     footer {
@@ -432,8 +454,8 @@
       padding: 32px 20px 50px;
       color: var(--muted);
       font-size: 0.95rem;
-      border-top: 1px solid var(--border);
-      background: #f3eee7;
+      border-top: 1px solid rgba(120,95,60,0.10);
+      background: linear-gradient(to bottom, rgba(247,242,234,0.8), rgba(239,231,216,0.75));
     }
 
     @media (max-width: 980px) {
@@ -477,7 +499,8 @@
       .signature-list,
       .contact-card,
       .form-card,
-      .audience-card {
+      .audience-card,
+      .card {
         padding: 24px;
       }
 
@@ -487,10 +510,6 @@
 
       .hero-text {
         font-size: 1rem;
-      }
-
-      .nav-links {
-        gap: 8px;
       }
 
       .secondary-button {
@@ -569,7 +588,7 @@
     <section class="featured section">
       <div class="container">
         <div class="featured-box">
-          <p class="eyebrow">Featured Experience</p>
+          <p class="eyebrow" style="color: var(--gold);">Featured Experience</p>
           <h2>Kerala Unscripted Escape</h2>
           <p>
             A curated 5-day journey through presence, culture, hidden moments, and slow immersion.
@@ -692,7 +711,7 @@
           <div class="contact-card">
             <h3>Get in Touch</h3>
             <p>Tell us what kind of experience you’re dreaming of, and we’ll begin shaping it with you.</p>
-            <p>Email: <a href="mailto:krishna2214617@email.com">krishna2214617@email.com</a></p>
+            <p>Email: <a href="mailto:krishna2214617@gmail.com">krishna2214617@gmail.com</a></p>
             <p>Based in Germany &amp; India</p>
             <p>WhatsApp support coming soon.</p>
             <p>Response time: usually within 24–48 hours.</p>
@@ -701,12 +720,14 @@
           <div class="form-card">
             <h3>Enquiry Form</h3>
 
-            <!-- Replace the action URL below with your Formspree form URL later -->
-            <form action="https://formspree.io/f/xwvwbaej" method="POST">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your full name" required />
-              </div>
+           <form action="https://formspree.io/f/xkgrbeze" method="POST">
+
+  <input type="hidden" name="_next" value="https://krishnashalima.github.io/kaya-kiya/thank-you.html">
+
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+  </div>
 
               <div class="form-group">
                 <label for="email">Email Address</label>
@@ -730,10 +751,9 @@
               </div>
 
               <input type="hidden" name="_subject" value="New Kaya-Kiya Enquiry" />
-              <input type="hidden" name="_next" value="thank-you.html" />
 
               <button type="submit" class="submit-button">Send Enquiry</button>
-              <p class="form-note">Once Formspree is connected, enquiries will arrive directly in your email inbox.</p>
+             <p class="form-note">We’ll get back to you within 24–48 hours.</p>
             </form>
           </div>
         </div>
