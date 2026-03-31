@@ -331,7 +331,10 @@
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-
+/* Fix for balcony image */
+.balcony-fit {
+  object-position: center 35%;
+}
     .gallery-item::after {
       content: "";
       position: absolute;
@@ -817,7 +820,7 @@
             <span>Unplanned</span>
           </div>
           <div class="gallery-item">
-            <img src="images/gallery2.jpg" alt="Freedom moment" />
+            <img src="images/gallery2.jpg" alt="Freedom moment" class="balcony-fit" />
             <span>Freedom</span>
           </div>
           <div class="gallery-item">
