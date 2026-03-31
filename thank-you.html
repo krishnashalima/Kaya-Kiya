@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Kaya-Kiya Voyages</title>
+  <meta name="description" content="Thank you for your enquiry to Kaya-Kiya Voyages." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f7f3ee;
+      --surface: #ffffff;
+      --text: #1f1f1f;
+      --muted: #5f5f5f;
+      --accent: #1f4d3a;
+      --border: #e8e1d8;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background:
+        linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)),
+        url("images/hero.jpg") center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: var(--text);
+    }
+
+    .thankyou-card {
+      width: min(700px, 92%);
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 48px 36px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 14px;
+      line-height: 1.7;
+    }
+
+    .button-row {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .small-note {
+      margin-top: 24px;
+      font-size: 0.92rem;
+      color: #6b6b6b;
+    }
+
+    @media (max-width: 600px) {
+      .thankyou-card {
+        padding: 36px 22px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="thankyou-card">
+    <p class="eyebrow">Kaya-Kiya Voyages</p>
+    <h1>Thank You for Your Enquiry</h1>
+
+    <p>
+      Your message has been received. We’re excited to hear what kind of experience
+      you’re dreaming of.
+    </p>
+
+    <p>
+      We’ll review your enquiry and get back to you at
+      <strong>krishna2214617@gmail.com</strong> within 24–48 hours.
+    </p>
+
+    <div class="button-row">
+      <a href="index.html" class="button button-primary">Back to Home</a>
+      <a href="mailto:krishna2214617@gmail.com" class="button button-secondary">Email Us Directly</a>
+    </div>
+
+    <p class="small-note">
+      Kaya-Kiya Voyages — Unscripted Journeys
+    </p>
+  </main>
+</body>
+</html>
