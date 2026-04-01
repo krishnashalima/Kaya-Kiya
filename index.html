@@ -1,835 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    © 2026 Shalima Krishna | Kaya-Kiya Voyages
+    All rights reserved.
+    This website, its design structure, written content, and brand presentation
+    may not be reproduced or reused without permission.
+  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kaya-Kiya Unscripted Journeys</title>
   <meta
     name="description"
-    content="Luxury travel experience platform for Kaya-Kiya Voyages — curated journeys, storytelling-driven travel, and premium client experiences."
+    content="Kaya-Kiya Voyages creates curated India and Europe journeys for travelers who want to feel, not just travel — slow escapes, premium experiences, romantic moments, and story-led travel."
   />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #f5f0e6 0%, #eee7da 100%);
-      color: #1e1e1e;
-      line-height: 1.6;
-    }
-
-    img,
-    video {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .section {
-      padding: 90px 20px;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto 50px;
-      text-align: center;
-    }
-
-    .section-intro h2 {
-      font-size: 2.2rem;
-      margin-bottom: 18px;
-      color: #111;
-    }
-
-    .section-intro p {
-      font-size: 1.08rem;
-      color: #5c564f;
-      margin-bottom: 14px;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 32px;
-      color: #111;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.85rem;
-      color: #d7c39a;
-      margin-bottom: 18px;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      background:
-        linear-gradient(rgba(20, 12, 7, 0.45), rgba(20, 12, 7, 0.52)),
-        url("images/hero.jpg") center center / cover no-repeat;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 42px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .logo {
-      font-size: 1.9rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-button {
-      border: 1px solid rgba(255,255,255,0.45);
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 999px;
-      transition: 0.3s ease;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-    }
-
-    .nav-button:hover {
-      background: rgba(255,255,255,0.16);
-    }
-
-    .hero-content {
-      max-width: 720px;
-      padding: 0 42px 120px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.6rem, 9vw, 7rem);
-      line-height: 0.95;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .hero-text {
-      font-size: 1.4rem;
-      margin-bottom: 34px;
-      color: rgba(255,255,255,0.92);
-      max-width: 600px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .primary-button,
-    .secondary-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 28px;
-      border-radius: 999px;
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
-
-    .primary-button {
-      background: #1d6b4c;
-      color: #fff;
-      box-shadow: 0 12px 25px rgba(29, 107, 76, 0.22);
-    }
-
-    .primary-button:hover {
-      transform: translateY(-2px);
-      background: #16563c;
-    }
-
-    .secondary-button {
-      border: 1px solid rgba(255,255,255,0.45);
-      color: #fff;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-    }
-
-    .secondary-button:hover {
-      background: rgba(255,255,255,0.16);
-      transform: translateY(-2px);
-    }
-
-    .hero-cinematic-copy {
-      max-width: 760px;
-      padding: 0 42px 70px;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.87);
-      position: relative;
-      z-index: 3;
-    }
-
-    .hero-fade {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 180px;
-      background: linear-gradient(to bottom, rgba(245,240,230,0) 0%, #f5f0e6 100%);
-      z-index: 2;
-    }
-
-    /* CARDS */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .two-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card,
-    .featured-box,
-    .signature-text-box,
-    .contact-card,
-    .form-card {
-      background: rgba(255,255,255,0.56);
-      border: 1px solid rgba(120,95,55,0.08);
-      border-radius: 28px;
-      box-shadow: 0 14px 35px rgba(75, 58, 31, 0.08);
-      backdrop-filter: blur(6px);
-    }
-
-    .card {
-      padding: 28px;
-    }
-
-    .card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 12px;
-      color: #1d6b4c;
-    }
-
-    .card p {
-      color: #5e564f;
-      font-size: 1.05rem;
-    }
-
-    .card ul {
-      margin-top: 18px;
-      padding-left: 20px;
-    }
-
-    .card li {
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    /* FEATURE */
-    .featured-box {
-      padding: 38px;
-    }
-
-    .featured-box h2 {
-      margin-bottom: 16px;
-    }
-
-    .featured-box p {
-      color: #5e564f;
-      font-size: 1.08rem;
-      margin-bottom: 18px;
-    }
-
-    .featured-box ul {
-      padding-left: 22px;
-    }
-
-    .featured-box li {
-      margin-bottom: 12px;
-      color: #333;
-    }
-
-    /* SIGNATURE */
-    .signature-wrap {
-      display: grid;
-      grid-template-columns: 1.15fr 0.95fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .signature-text-box {
-      padding: 34px;
-    }
-
-    .signature-text-box p {
-      color: #4f4b45;
-      margin-bottom: 20px;
-      font-size: 1.08rem;
-    }
-
-    .signature-text-box ul {
-      padding-left: 22px;
-    }
-
-    .signature-text-box li {
-      margin-bottom: 12px;
-      color: #333;
-    }
-
-    .signature-image-box img {
-      border-radius: 28px;
-      box-shadow: 0 16px 35px rgba(70, 54, 28, 0.15);
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-/* GALLERY */
-.gallery.section {
-  padding: 90px 0 70px;
-}
-
-.gallery.section h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 34px;
-  letter-spacing: -0.03em;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.gallery-item {
-  position: relative;
-  border-radius: 28px;
-  overflow: hidden;
-  min-height: 460px;
-  background: #cfc6b8;
-  box-shadow: 0 18px 34px rgba(66, 49, 25, 0.12);
-  transform: translateY(0);
-  transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    filter 0.45s ease;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition:
-    transform 0.9s ease,
-    filter 0.6s ease;
-}
-
-.balcony-fit {
-  object-position: 28% 42%;
-}
-
-.gallery-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.72) 0%,
-    rgba(0, 0, 0, 0.22) 38%,
-    rgba(0, 0, 0, 0.04) 70%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  z-index: 1;
-  transition: opacity 0.45s ease;
-}
-
-.gallery-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 28px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.gallery-item span {
-  position: absolute;
-  left: 20px;
-  bottom: 18px;
-  color: #fff;
-  z-index: 3;
-  font-weight: 700;
-  font-size: 1.08rem;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-  transition:
-    transform 0.45s ease,
-    opacity 0.45s ease;
-}
-
-.gallery-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 46px rgba(66, 49, 25, 0.18);
-}
-
-.gallery-item:hover img {
-  transform: scale(1.06);
-  filter: brightness(1.04) saturate(1.04);
-}
-
-.gallery-item:hover::before {
-  opacity: 0.9;
-}
-
-.gallery-item:hover span {
-  transform: translateY(-3px);
-}
-
-.gallery-item:nth-child(1) {
-  animation: galleryReveal 0.8s ease both;
-}
-.gallery-item:nth-child(2) {
-  animation: galleryReveal 0.8s ease 0.08s both;
-}
-.gallery-item:nth-child(3) {
-  animation: galleryReveal 0.8s ease 0.16s both;
-}
-.gallery-item:nth-child(4) {
-  animation: galleryReveal 0.8s ease 0.24s both;
-}
-
-@keyframes galleryReveal {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 1100px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-item {
-    min-height: 440px;
-  }
-}
-
-@media (max-width: 680px) {
-  .gallery.section {
-    padding: 70px 0 50px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .gallery-item {
-    min-height: 420px;
-    border-radius: 24px;
-  }
-
-  .gallery-item::after {
-    border-radius: 24px;
-  }
-
-  .gallery-item span {
-    left: 16px;
-    bottom: 16px;
-    font-size: 1rem;
-  }
-}
-    /* VIDEO GRID */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-
-    .video-card {
-      position: relative;
-      border-radius: 28px;
-      overflow: hidden;
-      min-height: 460px;
-      box-shadow: 0 18px 38px rgba(60, 45, 23, 0.16);
-      background: #000;
-    }
-
-    .video-card video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .video-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 26px;
-      background: linear-gradient(to top, rgba(0,0,0,0.68), rgba(0,0,0,0.08));
-      color: #fff;
-    }
-
-    .video-tag {
-      display: inline-block;
-      align-self: flex-start;
-      padding: 6px 12px;
-      border: 1px solid rgba(255,255,255,0.45);
-      border-radius: 999px;
-      font-size: 0.8rem;
-      letter-spacing: 1.3px;
-      margin-bottom: 14px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .video-overlay h3 {
-      font-size: 2rem;
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-
-    .video-overlay p {
-      font-size: 1.08rem;
-      color: rgba(255,255,255,0.92);
-      max-width: 85%;
-    }
-
-    .section-note {
-      margin-top: 24px;
-      text-align: center;
-      color: #846d4e;
-      font-size: 0.96rem;
-    }
-
-    /* INSTAGRAM STORY */
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .instagram-card {
-      position: relative;
-      min-height: 420px;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 16px 30px rgba(66, 49, 25, 0.14);
-    }
-
-    .instagram-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .instagram-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .instagram-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 22px;
-      background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.08));
-      color: #fff;
-    }
-
-    .instagram-overlay h3 {
-      font-size: 1.7rem;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-
-    .instagram-overlay p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.93);
-    }
-
-    .instagram-cta-wrap {
-      text-align: center;
-      margin-top: 30px;
-    }
-    /* CTA SECTION */
-.cta-section {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.cta-box {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 46px 34px;
-  border-radius: 32px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.5));
-  box-shadow: 0 18px 40px rgba(66, 49, 25, 0.10);
-  text-align: center;
-  backdrop-filter: blur(6px);
-}
-
-.cta-eyebrow {
-  font-size: 0.82rem;
-  letter-spacing: 0.18em;
-  color: #a27b3c;
-  margin-bottom: 14px;
-  font-weight: 700;
-}
-
-.cta-box h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.08;
-  margin-bottom: 16px;
-  letter-spacing: -0.03em;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cta-text {
-  max-width: 700px;
-  margin: 0 auto 24px;
-  font-size: 1.1rem;
-  line-height: 1.75;
-  color: #5f554a;
-}
-.cta-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 18px;
-}
-.cta-primary {
-  min-width: 280px;
-  padding: 18px 36px;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
-  box-shadow: 0 12px 30px rgba(22, 87, 54, 0.18);
-}
-@media (max-width: 760px) {
-  .cta-box {
-    padding: 34px 22px;
-    border-radius: 24px;
-  }
-
-  .cta-text {
-    font-size: 1rem;
-  }
-}
-    /* CONTACT */
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .contact-card,
-    .form-card {
-      padding: 34px;
-    }
-
-    .contact-card h3,
-    .form-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 18px;
-      color: #1d6b4c;
-    }
-
-    .contact-card p {
-      margin-bottom: 10px;
-      color: #5e564f;
-      font-size: 1.05rem;
-    }
-
-    .contact-card a {
-      color: #1d6b4c;
-      font-weight: 600;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #2a2a2a;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 15px 16px;
-      border-radius: 18px;
-      border: 1px solid #d7ccb9;
-      font-size: 1rem;
-      background: rgba(255,255,255,0.78);
-      outline: none;
-    }
-
-    .form-group textarea {
-      min-height: 160px;
-      resize: vertical;
-    }
-
-    .form-note {
-      margin-top: 16px;
-      color: #6b635b;
-      font-size: 0.97rem;
-    }
-#contact.section {
-  padding-top: 10px;
-}
-    /* FOOTER */
-    .footer {
-      padding: 28px 20px 34px;
-      text-align: center;
-      color: #7a6b5c;
-      font-size: 0.98rem;
-    }
-
-    /* WHATSAPP */
-    .whatsapp-float {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      background: #25D366;
-      color: #fff;
-      padding: 16px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      box-shadow: 0 14px 28px rgba(37, 211, 102, 0.3);
-      z-index: 1000;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1100px) {
-      .card-grid,
-      .two-col,
-      .signature-wrap,
-      .contact-wrap,
-      .video-grid,
-      .instagram-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-content,
-      .hero-cinematic-copy,
-      .navbar {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .card-grid,
-      .two-col,
-      .signature-wrap,
-      .contact-wrap,
-      .video-grid,
-      .instagram-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: 88vh;
-      }
-
-      .hero-content {
-        padding-bottom: 70px;
-      }
-
-      .hero-cinematic-copy {
-        padding-bottom: 50px;
-        font-size: 1rem;
-      }
-
-      .hero h1 {
-        font-size: 3.3rem;
-      }
-
-      .hero-text {
-        font-size: 1.08rem;
-      }
-
-      .navbar {
-        padding-top: 22px;
-      }
-
-      .logo {
-        font-size: 1.45rem;
-      }
-
-      .nav-button {
-        padding: 10px 18px;
-        font-size: 0.95rem;
-      }
-
-      .section {
-        padding: 70px 18px;
-      }
-
-      .video-card,
-      .instagram-card,
-      .gallery-item {
-        min-height: 360px;
-      }
-
-      .whatsapp-float {
-        right: 16px;
-        bottom: 16px;
-        padding: 14px 18px;
-        font-size: 0.94rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="hero">
     <nav class="navbar">
       <div class="logo">Kaya-Kiya</div>
-      <a href="#contact" class="nav-button">Contact</a>
+
+      <div class="nav-menu">
+        <a href="stories.html" class="nav-link">Stories</a>
+        <a href="#contact" class="nav-button">Contact</a>
+      </div>
     </nav>
 
     <div class="hero-content">
@@ -895,10 +91,143 @@
       </div>
     </section>
 
+    <section class="collections section">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Curated Journey Collections</h2>
+          <p>
+            Kaya-Kiya moves between India and Europe — not as a booking list,
+            but as a bridge between places, moods, memory, and the way a journey is meant to feel.
+          </p>
+          <p>
+            Some experiences begin in India and open outward. Others begin in Europe and return inward.
+            Each one is shaped slowly, personally, and with intention.
+          </p>
+        </div>
+
+        <div class="collection-block">
+          <div class="collection-heading">
+            <p class="eyebrow">INDIA COLLECTIONS</p>
+            <h3>India, felt deeply</h3>
+            <p>
+              Designed for travelers seeking atmosphere, culture, stillness, and a more intimate way
+              of moving through India.
+            </p>
+          </div>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Kerala Slow Escape</h3>
+              <p>
+                Backwaters, quiet mornings, local textures, and a softer rhythm of travel.
+              </p>
+              <ul>
+                <li>Houseboat and waterside stays</li>
+                <li>Slow cultural immersion</li>
+                <li>Private hidden moments</li>
+                <li>Ideal for couples or solo reflection</li>
+              </ul>
+              <p><strong>Positioning:</strong> Curated premium journey</p>
+            </article>
+
+            <article class="card">
+              <h3>India Romantic Signature</h3>
+              <p>
+                For proposals, anniversaries, and emotionally rich moments that feel cinematic without being staged.
+              </p>
+              <ul>
+                <li>Private dinner styling</li>
+                <li>Curated celebration mood</li>
+                <li>Surprise planning support</li>
+                <li>Photography-friendly but real</li>
+              </ul>
+              <p><strong>Positioning:</strong> Special occasion curation</p>
+            </article>
+
+            <article class="card">
+              <h3>India Soul Journey</h3>
+              <p>
+                For travelers who want less noise, more depth, and a journey shaped around feeling rather than rushing.
+              </p>
+              <ul>
+                <li>Slower pace itinerary design</li>
+                <li>Nature, stillness, and local encounters</li>
+                <li>Reflection-led travel rhythm</li>
+                <li>Ideal for solo travelers</li>
+              </ul>
+              <p><strong>Positioning:</strong> Emotionally curated travel</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="collection-block">
+          <div class="collection-heading">
+            <p class="eyebrow">EUROPE COLLECTIONS</p>
+            <h3>Europe, softened and reimagined</h3>
+            <p>
+              Designed for travelers who want Europe not just as sightseeing, but as atmosphere,
+              beauty, intimacy, and emotional memory.
+            </p>
+          </div>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Europe Quiet Luxury Escape</h3>
+              <p>
+                A slower European journey shaped through beautiful stays, spacious movement, and elegant calm.
+              </p>
+              <ul>
+                <li>Boutique or scenic stays</li>
+                <li>Intentional pacing</li>
+                <li>Less checklist, more atmosphere</li>
+                <li>Best for premium travelers</li>
+              </ul>
+              <p><strong>Positioning:</strong> Premium Europe curation</p>
+            </article>
+
+            <article class="card">
+              <h3>Skyline & Snow Journey</h3>
+              <p>
+                High-altitude silence, blue light, mountain air, and emotionally spacious moments across Europe.
+              </p>
+              <ul>
+                <li>Snow landscapes and scenic regions</li>
+                <li>Quiet reflection-based travel</li>
+                <li>Cinematic movement without force</li>
+                <li>Ideal for solo or couples</li>
+              </ul>
+              <p><strong>Positioning:</strong> Scenic premium experience</p>
+            </article>
+
+            <article class="card">
+              <h3>Europe Celebration Story</h3>
+              <p>
+                For intimate birthdays, anniversaries, proposals, and beautiful milestone memories in Europe.
+              </p>
+              <ul>
+                <li>Destination surprise planning</li>
+                <li>Private moment curation</li>
+                <li>Refined romantic atmosphere</li>
+                <li>Personalized story-led design</li>
+              </ul>
+              <p><strong>Positioning:</strong> Signature occasion experience</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="protection-note">
+          <p>
+            Every Kaya-Kiya journey is curated personally. We work with a limited number of requests
+            and shape each experience based on fit, mood, timing, and intention.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="featured section">
       <div class="container">
         <div class="featured-box">
-          <p class="eyebrow" style="color:#c39b59;">FEATURED EXPERIENCE</p>
+          <p class="eyebrow feature-label">FEATURED EXPERIENCE</p>
           <h2>Kerala Unscripted Escape</h2>
           <p>
             A curated 5-day journey through presence, culture, hidden moments, and slow immersion.
@@ -931,7 +260,7 @@
           </div>
 
           <div class="signature-image-box">
-            <img src="images/signature.jpg" alt="Signature Kaya-Kiya experience" />
+            <img src="assets/images/signature.jpg" alt="Signature Kaya-Kiya experience" />
           </div>
         </div>
       </div>
@@ -990,33 +319,33 @@
       </div>
     </section>
 
- <section class="gallery section">
-  <div class="container">
-    <h2>Moments We Believe In</h2>
+    <section class="gallery section">
+      <div class="container">
+        <h2>Moments We Believe In</h2>
 
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="images/gallery1.jpg" alt="Unplanned moment" />
-        <span>Unplanned</span>
-      </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/images/gallery1.jpg" alt="Unplanned moment" />
+            <span>Unplanned</span>
+          </div>
 
-      <div class="gallery-item">
-        <img src="images/gallery2.jpg" alt="Freedom moment" class="balcony-fit" />
-        <span>Freedom</span>
-      </div>
+          <div class="gallery-item">
+            <img src="assets/images/gallery2.jpg" alt="Freedom moment" class="balcony-fit" />
+            <span>Freedom</span>
+          </div>
 
-      <div class="gallery-item">
-        <img src="images/gallery3.jpg" alt="Stillness moment" />
-        <span>Stillness</span>
-      </div>
+          <div class="gallery-item">
+            <img src="assets/images/gallery3.jpg" alt="Stillness moment" />
+            <span>Stillness</span>
+          </div>
 
-      <div class="gallery-item">
-        <img src="images/gallery4.jpg" alt="Connection moment" />
-        <span>Connection</span>
+          <div class="gallery-item">
+            <img src="assets/images/gallery4.jpg" alt="Connection moment" />
+            <span>Connection</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="video-story section">
       <div class="container">
@@ -1031,7 +360,7 @@
         <div class="video-grid">
           <article class="video-card">
             <video autoplay muted loop playsinline>
-              <source src="videos/experience1.mp4" type="video/mp4" />
+              <source src="assets/videos/experience1.mp4" type="video/mp4" />
             </video>
             <div class="video-overlay">
               <span class="video-tag">KERALA</span>
@@ -1042,7 +371,7 @@
 
           <article class="video-card">
             <video autoplay muted loop playsinline>
-              <source src="videos/experience2.mp4" type="video/mp4" />
+              <source src="assets/videos/experience2.mp4" type="video/mp4" />
             </video>
             <div class="video-overlay">
               <span class="video-tag">EUROPE</span>
@@ -1053,7 +382,7 @@
 
           <article class="video-card">
             <video autoplay muted loop playsinline>
-              <source src="videos/experience3.mp4" type="video/mp4" />
+              <source src="assets/videos/experience3.mp4" type="video/mp4" />
             </video>
             <div class="video-overlay">
               <span class="video-tag">CELEBRATION</span>
@@ -1064,7 +393,7 @@
 
           <article class="video-card">
             <video autoplay muted loop playsinline>
-              <source src="videos/experience4.mp4" type="video/mp4" />
+              <source src="assets/videos/experience4.mp4" type="video/mp4" />
             </video>
             <div class="video-overlay">
               <span class="video-tag">UNSCRIPTED</span>
@@ -1089,48 +418,48 @@
         </div>
 
         <div class="instagram-grid">
-          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank">
-            <img src="images/insta1.jpg" alt="Travel to feel" />
+          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/insta1.jpg" alt="Travel to feel" />
             <div class="instagram-overlay">
               <h3>For souls who travel to feel</h3>
               <p>Not every journey needs noise. Some only need space, silence, and truth.</p>
             </div>
           </a>
 
-          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank">
-            <img src="images/insta2.jpg" alt="Places stay with you" />
+          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/insta2.jpg" alt="Places stay with you" />
             <div class="instagram-overlay">
               <h3>Some places stay with you</h3>
               <p>The kind of place you leave physically, but carry quietly for a long time.</p>
             </div>
           </a>
 
-          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank">
-            <img src="images/insta3.jpg" alt="Not staged just lived" />
+          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/insta3.jpg" alt="Not staged just lived" />
             <div class="instagram-overlay">
               <h3>Not staged. Just lived.</h3>
               <p>Moments that were never performed for the camera, only felt in real time.</p>
             </div>
           </a>
 
-          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank">
-            <img src="images/insta4.jpg" alt="Life in fragments" />
+          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/insta4.jpg" alt="Life in fragments" />
             <div class="instagram-overlay">
               <h3>A life in fragments</h3>
               <p>Stories written across sunsets, train stations, sea air, and unfamiliar streets.</p>
             </div>
           </a>
 
-          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank">
-            <img src="images/insta5.jpg" alt="Journey before booking" />
+          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/insta5.jpg" alt="Journey before booking" />
             <div class="instagram-overlay">
               <h3>The journey before the booking</h3>
               <p>Sometimes the feeling begins long before the suitcase is even packed.</p>
             </div>
           </a>
 
-          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank">
-            <img src="images/insta6.jpg" alt="Come see how it feels" />
+          <a class="instagram-card" href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/insta6.jpg" alt="Come see how it feels" />
             <div class="instagram-overlay">
               <h3>Come see how it feels</h3>
               <p>Follow the visual journal behind the brand and step inside the world of Kaya-Kiya.</p>
@@ -1139,27 +468,29 @@
         </div>
 
         <div class="instagram-cta-wrap">
-          <a href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" class="primary-button">
+          <a href="https://www.instagram.com/kaya_kiya_voyages/" target="_blank" rel="noopener noreferrer" class="primary-button">
             Follow the Journey on Instagram
           </a>
         </div>
       </div>
     </section>
-<section class="cta-section section">
-  <div class="container">
-    <div class="cta-box">
-      <p class="cta-eyebrow">UNSCRIPTED, CURATED, INTENTIONAL</p>
-      <h2>Not every journey is planned. Some are meant to be felt.</h2>
-      <p class="cta-text">
-        Tell us what kind of moment you’re dreaming of — stillness, celebration,
-        romance, surprise, or something beautifully undefined — and we’ll shape it with you.
-      </p>
-      <div class="cta-actions">
-           <a href="#contact" class="primary-button">Start Your Unscripted Journey</a>
+
+    <section class="cta-section section">
+      <div class="container">
+        <div class="cta-box">
+          <p class="cta-eyebrow">UNSCRIPTED, CURATED, INTENTIONAL</p>
+          <h2>Not every journey is planned. Some are meant to be felt.</h2>
+          <p class="cta-text">
+            Tell us what kind of moment you’re dreaming of — stillness, celebration,
+            romance, surprise, or something beautifully undefined — and we’ll shape it with you.
+          </p>
+          <div class="cta-actions">
+            <a href="#contact" class="primary-button">Start Your Unscripted Journey</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
     <section id="contact" class="contact section">
       <div class="container">
         <div class="section-intro">
@@ -1175,13 +506,13 @@
             <p>Based in Germany &amp; India</p>
             <p>WhatsApp support coming soon.</p>
             <p>Response time: usually within 24–48 hours.</p>
+            <p>We review each enquiry personally and curate only a limited number of journeys at a time.</p>
           </div>
 
           <div class="form-card">
             <h3>Enquiry Form</h3>
 
             <form action="https://formspree.io/f/xwvwbaej" method="POST">
-
               <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required />
@@ -1189,32 +520,54 @@
 
               <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Your email address" required />
+                <input type="email" id="email" name="email" required />
               </div>
 
               <div class="form-group">
-                <label for="experience">Experience Type</label>
+                <label for="experience">What kind of journey are you dreaming of?</label>
                 <select id="experience" name="experience" required>
-                  <option value="">Select an option</option>
-                  <option>India Experience</option>
-                  <option>Global Experience</option>
-                  <option>Signature / Surprise Experience</option>
-                  <option>Luxury / Celebration Experience</option>
+                  <option value="">Select one</option>
+                  <option>Romantic Escape</option>
+                  <option>Solo Soul Journey</option>
+                  <option>Celebration / Special Occasion</option>
+                  <option>Adventure & Exploration</option>
+                  <option>Something Undefined</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="message">Tell us what you have in mind</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Destination, mood, occasion, preferred dates, or anything important..."
-                  required
-                ></textarea>
+                <label for="destination">Preferred Destination (optional)</label>
+                <input type="text" id="destination" name="destination" placeholder="e.g. Italy, Bali, Kerala..." />
               </div>
 
-              <button type="submit" class="primary-button">Send Enquiry</button>
-              <p class="form-note">After submission, you’ll see a confirmation page and we’ll get back to you within 24–48 hours.</p>
+              <div class="form-group">
+                <label for="timeline">When are you planning to travel?</label>
+                <input type="text" id="timeline" name="timeline" placeholder="Month / Flexible" />
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Estimated Budget (optional)</label>
+                <select id="budget" name="budget">
+                  <option value="">Select range</option>
+                  <option>Below €1,000</option>
+                  <option>€1,000 – €3,000</option>
+                  <option>€3,000 – €6,000</option>
+                  <option>€6,000+</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Describe your ideal experience</label>
+                <textarea id="message" name="message" placeholder="Tell us the feeling, not just the plan..." required></textarea>
+              </div>
+
+              <button type="submit" class="primary-button">Begin My Journey</button>
+
+              <p class="form-note">
+                We personally review every request. Because Kaya-Kiya is intentionally curated,
+                we work with a limited number of journeys at a time and respond within 24–48 hours.
+              </p>
             </form>
           </div>
         </div>
@@ -1222,11 +575,11 @@
     </section>
   </main>
 
-  <a href="#" class="whatsapp-float">WhatsApp Soon</a>
+  <a href="#" class="whatsapp-float">Private WhatsApp Soon</a>
 
   <footer class="footer">
     <div class="container">
-      <p>Kaya-Kiya Voyages — Unscripted Journeys</p>
+      <p>© 2026 Kaya-Kiya Voyages. All rights reserved.</p>
     </div>
   </footer>
 </body>
