@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stories | Kaya-Kiya Voyages</title>
+  <meta
+    name="description"
+    content="Stories, moods, and moments from Kaya-Kiya Voyages — curated reflections on travel, stillness, beauty, and journeys that stay with you."
+  />
+
+  <style>
+    :root {
+      --bg: #f3ede4;
+      --card: rgba(255, 255, 255, 0.72);
+      --text: #1f1b17;
+      --muted: #675f57;
+      --green: #1d6b4c;
+      --gold: #a27b3c;
+      --border: rgba(100, 84, 64, 0.10);
+      --shadow: 0 18px 40px rgba(66, 49, 25, 0.10);
+      --radius: 28px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .navbar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(243, 237, 228, 0.82);
+      border-bottom: 1px solid rgba(100, 84, 64, 0.07);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 0.98rem;
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(29, 107, 76, 0.08);
+      color: var(--green);
+    }
+
+    .nav-button,
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav-button,
+    .primary-button {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(29, 107, 76, 0.18);
+    }
+
+    .nav-button:hover,
+    .primary-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .stories-hero {
+      padding: 80px 0 40px;
+    }
+
+    .stories-hero-box {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 54px 32px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.76), rgba(255,255,255,0.56));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .stories-hero h1 {
+      margin: 0 auto 18px;
+      max-width: 780px;
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .stories-hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.12rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .section-intro {
+      max-width: 860px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .section-intro h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro p {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .story-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.58);
+      box-shadow: 0 16px 34px rgba(66, 49, 25, 0.09);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      min-height: 100%;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 40px rgba(66, 49, 25, 0.13);
+    }
+
+    .story-card-media {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+    }
+
+    .story-card-media img,
+    .story-card-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .story-fit-kerala {
+      object-position: center 35%;
+    }
+
+    .story-fit-europe {
+      object-position: center center;
+    }
+
+    .story-fit-unscripted {
+      object-position: center 38%;
+    }
+
+    .unscripted-card .story-card-media {
+      min-height: 290px;
+    }
+
+    .story-card:hover .story-card-media img,
+    .story-card:hover .story-card-media video {
+      transform: scale(1.04);
+    }
+
+    .story-card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.56), rgba(0,0,0,0.05));
+    }
+
+    .story-tag {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      z-index: 2;
+      display: inline-block;
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.42);
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .story-card-copy {
+      padding: 26px 24px 28px;
+    }
+
+    .story-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.65rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .story-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .story-read {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .story-note {
+      margin-top: 28px;
+      text-align: center;
+      color: #846d4e;
+      font-size: 0.98rem;
+    }
+
+    .story-signature {
+      margin-top: 18px;
+      text-align: center;
+      color: #8a7f73;
+      font-size: 0.96rem;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+
+    .stories-cta {
+      padding-top: 40px;
+      padding-bottom: 70px;
+    }
+
+    .stories-cta-box {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 48px 30px;
+      text-align: center;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.76), rgba(255,255,255,0.52));
+      box-shadow: var(--shadow);
+    }
+
+    .stories-cta-box h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .stories-cta-box p {
+      max-width: 700px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 28px 20px 40px;
+      text-align: center;
+      color: #7a6b5c;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 1024px) {
+      .stories-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .stories-hero {
+        padding: 50px 0 24px;
+      }
+
+      .stories-hero-box {
+        padding: 38px 22px;
+        border-radius: 26px;
+      }
+
+      .stories-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .story-card-media {
+        min-height: 340px;
+      }
+
+      .unscripted-card .story-card-media {
+        min-height: 340px;
+      }
+
+      .navbar {
+        gap: 14px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar-wrap">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">Kaya-Kiya</a>
+
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="stories.html" class="nav-link">Stories</a>
+          <a href="index.html#experiences" class="nav-link">Experiences</a>
+          <a href="index.html#contact" class="nav-button">Start Your Journey</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section class="stories-hero">
+      <div class="container">
+        <div class="stories-hero-box">
+          <p class="eyebrow">Fragments, Moods, and Places That Stay</p>
+          <h1>Stories That Stay</h1>
+          <p>
+            Not every journey lives in an itinerary. Some stay in the mind as a light,
+            a silence, a table by water, a skyline, or a place you didn’t expect to remember for so long.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2>The World Behind Kaya-Kiya</h2>
+          <p>
+            These are not guides. They are reflections — moments gathered from movement, beauty,
+            stillness, and the kinds of places that shape how a journey is felt long after it ends.
+          </p>
+        </div>
+
+        <div class="stories-grid">
+          <article class="story-card">
+            <a href="story-kerala-slow-morning.html">
+              <div class="story-card-media">
+                <span class="story-tag">Kerala</span>
+
+                <!-- IMAGE VERSION -->
+                <!--
+                <img src="images/experience1-cover.jpg" alt="A slow morning in Kerala" class="story-fit-kerala" />
+                -->
+
+                <!-- VIDEO VERSION -->
+                <video autoplay muted loop playsinline class="story-fit-kerala">
+                  <source src="videos/experience1-cover.mp4" type="video/mp4" />
+                </video>
+              </div>
+
+              <div class="story-card-copy">
+                <h3>A Slow Morning in Kerala</h3>
+                <p>
+                  Backwater calm, warm light, and the kind of stillness that makes you want
+                  to stop speaking and simply be where you are.
+                </p>
+                <span class="story-read">Read Story →</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="story-card">
+            <a href="story-europe-snow-quiet.html">
+              <div class="story-card-media">
+                <span class="story-tag">Europe</span>
+
+                <!-- IMAGE VERSION -->
+                <img src="images/experience2-cover.jpg" alt="Snow quiet in Europe" class="story-fit-europe" />
+
+                <!-- VIDEO VERSION -->
+                <!--
+                <video autoplay muted loop playsinline class="story-fit-europe">
+                  <source src="videos/experience2-cover.mp4" type="video/mp4" />
+                </video>
+                -->
+              </div>
+
+              <div class="story-card-copy">
+                <h3>Skyline Breath, Snow Quiet</h3>
+                <p>
+                  A cold blue silence, mountain light, and the kind of distance that makes
+                  the world feel larger and you feel softer inside it.
+                </p>
+                <span class="story-read">Read Story →</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="story-card unscripted-card">
+            <a href="story-between-the-plan.html">
+              <div class="story-card-media">
+                <span class="story-tag">Unscripted</span>
+
+                <!-- IMAGE VERSION -->
+                <img src="images/experience4-cover.jpg" alt="Unscripted moment between plans" class="story-fit-unscripted" />
+
+                <!-- VIDEO VERSION -->
+                <!--
+                <video autoplay muted loop playsinline class="story-fit-unscripted">
+                  <source src="videos/experience4-cover.mp4" type="video/mp4" />
+                </video>
+                -->
+              </div>
+
+              <div class="story-card-copy">
+                <h3>The Places Between the Plan</h3>
+                <p>
+                  Some of the most unforgettable parts of a journey are never scheduled.
+                  They arrive quietly, somewhere between movement and meaning.
+                </p>
+                <span class="story-read">Read Story →</span>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <p class="story-note">
+          More stories, galleries, and location journals will unfold here over time.
+        </p>
+        <p class="story-signature">
+          Kaya was born from the journeys I’ve lived.
+        </p>
+      </div>
+    </section>
+
+    <section class="stories-cta">
+      <div class="container">
+        <div class="stories-cta-box">
+          <p class="eyebrow">Begin Where It Feels Right</p>
+          <h2>If this is the kind of journey you’re looking for, start with a feeling.</h2>
+          <p>
+            Tell us what you’re drawn to — romance, stillness, celebration, beauty, or
+            something you can’t quite explain yet — and we’ll shape the rest with care.
+          </p>
+          <a href="index.html#contact" class="primary-button">Start Your Journey</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Kaya-Kiya Voyages — stories, journeys, and moments that stay.</p>
+    </div>
+  </footer>
+</body>
+</html>

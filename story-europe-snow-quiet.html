@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skyline Breath, Snow Quiet | Kaya-Kiya Voyages</title>
+  <meta
+    name="description"
+    content="A quiet European story of snow light, mountain silence, and the kind of beauty that stays long after the journey ends."
+  />
+
+  <style>
+    :root {
+      --bg: #f5f0e6;
+      --bg-soft: #eee7da;
+      --text: #1f1b17;
+      --muted: #625a52;
+      --green: #1d6b4c;
+      --gold: #a27b3c;
+      --card: rgba(255,255,255,0.62);
+      --border: rgba(120,95,55,0.08);
+      --shadow: 0 18px 38px rgba(66, 49, 25, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img, video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, 1180px);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.82rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .navbar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 240, 230, 0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(120,95,55,0.08);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-link {
+      color: #5f574f;
+      font-weight: 500;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.75;
+    }
+
+    .nav-button,
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.28s ease;
+    }
+
+    .nav-button,
+    .primary-button {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 12px 25px rgba(29, 107, 76, 0.18);
+    }
+
+    .nav-button:hover,
+    .primary-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .story-hero {
+      padding: 44px 0 30px;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(66, 49, 25, 0.16);
+      min-height: 640px;
+    }
+
+    .hero-image-wrap img,
+    .hero-image-wrap video {
+      width: 100%;
+      height: 100%;
+      min-height: 640px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      background: linear-gradient(to top, rgba(0,0,0,0.62), rgba(0,0,0,0.08));
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      padding: 42px;
+      color: #fff;
+    }
+
+    .hero-copy .eyebrow {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.8rem, 6vw, 5.4rem);
+      line-height: 0.96;
+      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy p {
+      font-size: 1.14rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 620px;
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .story-content,
+    .story-side-card,
+    .story-gallery-card,
+    .story-cta-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .story-content {
+      padding: 38px;
+    }
+
+    .story-content p {
+      margin-bottom: 20px;
+      font-size: 1.08rem;
+      color: #403a34;
+    }
+
+    .story-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-side-card {
+      padding: 30px;
+      position: sticky;
+      top: 96px;
+    }
+
+    .story-side-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      color: var(--green);
+    }
+
+    .story-side-card ul {
+      padding-left: 20px;
+    }
+
+    .story-side-card li {
+      margin-bottom: 12px;
+      color: #49423b;
+    }
+
+    .story-gallery {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .story-gallery-card {
+      overflow: hidden;
+    }
+
+    .story-gallery-card img,
+    .story-gallery-card video {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .story-gallery-caption {
+      padding: 20px 22px 24px;
+    }
+
+    .story-gallery-caption h4 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      line-height: 1.12;
+    }
+
+    .story-gallery-caption p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .story-closing {
+      margin-top: 34px;
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.46));
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .story-closing p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.18rem;
+      color: #4b443d;
+      line-height: 1.8;
+    }
+
+    .story-cta {
+      padding-top: 26px;
+      padding-bottom: 80px;
+    }
+
+    .story-cta-box {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 44px 30px;
+      text-align: center;
+    }
+
+    .story-cta-box h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.04;
+      margin-bottom: 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .story-cta-box p {
+      max-width: 680px;
+      margin: 0 auto 24px;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 24px 20px 36px;
+      text-align: center;
+      color: #7a6b5c;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 980px) {
+      .story-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .story-side-card {
+        position: static;
+      }
+
+      .story-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .nav-menu {
+        flex-wrap: wrap;
+      }
+
+      .hero-image-wrap,
+      .hero-image-wrap img,
+      .hero-image-wrap video {
+        min-height: 500px;
+      }
+
+      .hero-copy {
+        padding: 26px 22px;
+      }
+
+      .story-content,
+      .story-side-card,
+      .story-cta-box {
+        padding: 28px 22px;
+      }
+
+      .story-gallery-card img,
+      .story-gallery-card video {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar-wrap">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">Kaya-Kiya</a>
+
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="stories.html" class="nav-link">Stories</a>
+          <a href="index.html#experiences" class="nav-link">Experiences</a>
+          <a href="index.html#contact" class="nav-button">Start Your Journey</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section class="story-hero">
+      <div class="container">
+        <div class="hero-image-wrap">
+          <!-- IMAGE VERSION -->
+          <img src="images/experience2-cover.jpg" alt="Snow quiet in Europe" />
+
+          <!-- VIDEO VERSION -->
+          <!--
+          <video autoplay muted loop playsinline>
+            <source src="videos/europe-hero.mp4" type="video/mp4" />
+          </video>
+          -->
+
+          <div class="hero-overlay">
+            <div class="hero-copy">
+              <p class="eyebrow">Europe / Snow / Silence / Scale</p>
+              <h1>Skyline Breath,<br />Snow Quiet</h1>
+              <p>
+                There are places that make you speak less. Not because there is nothing to say,
+                but because the quiet is already saying enough.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="story-layout">
+          <article class="story-content">
+            <p>
+              The first thing you notice in the snow is not the cold. It is the space.
+              The way distance rearranges itself. The way the eye keeps traveling farther than it does in ordinary life.
+              A mountain line, a pale horizon, a silence so wide it feels like something physical.
+            </p>
+
+            <p>
+              In cities, beauty often arrives quickly — in lights, in movement, in detail. But here it comes slowly.
+              It opens in layers. A ridge. A shadow. The lift of blue over white. The stillness of air that feels untouched.
+              It is not dramatic in the loud sense. It is dramatic in the way truth can be.
+            </p>
+
+            <p>
+              Standing in that kind of landscape changes your inner rhythm. The usual noise recedes.
+              There is less need to check, compare, explain, or even document every second.
+              You begin to understand that some places are not meant to be captured all at once.
+              They are meant to be entered — gradually, with humility.
+            </p>
+
+            <p>
+              That is what makes certain journeys stay. Not only the place itself, but the version of you that appears inside it.
+              A quieter version. A softer one. One that notices breath, light, and scale a little differently.
+              One that begins to remember that awe is not rare — it is just often interrupted.
+            </p>
+
+            <p>
+              Europe, in moments like these, is not only architecture or itinerary or movement between cities.
+              It can also be altitude, hush, and a kind of clean emotional distance.
+              The kind that makes space for reflection. The kind that makes beauty feel less decorative and more essential.
+            </p>
+
+            <p>
+              And maybe that is what we are really looking for in certain places:
+              not just scenery, but atmosphere.
+              Not only destination, but perspective.
+              Not simply a trip, but a return to a quieter part of ourselves.
+            </p>
+          </article>
+
+          <aside class="story-side-card">
+            <h3>What this kind of journey holds</h3>
+            <ul>
+              <li>Quiet, high-altitude landscapes that slow the nervous system</li>
+              <li>Moments of reflection built into the movement of the day</li>
+              <li>Cold light, spacious views, and emotionally rich stillness</li>
+              <li>A softer, slower form of European travel</li>
+              <li>Experiences that feel cinematic without being forced</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="story-gallery">
+          <div class="story-gallery-card">
+            <!-- IMAGE VERSION -->
+            <img src="images/europe-story-1.jpg" alt="Snow landscape and open mountain sky" />
+
+            <!-- VIDEO VERSION -->
+            <!--
+            <video autoplay muted loop playsinline>
+              <source src="videos/europe-story-1.mp4" type="video/mp4" />
+            </video>
+            -->
+
+            <div class="story-gallery-caption">
+              <h4>Where scale becomes silence</h4>
+              <p>
+                Some views do not overwhelm. They quiet you first.
+              </p>
+            </div>
+          </div>
+
+          <div class="story-gallery-card">
+            <!-- IMAGE VERSION -->
+           <!--
+            <img src="images/europe-story-2.jpg" alt="A traveler in a snowy European landscape" />
+            -->
+            <!-- VIDEO VERSION -->
+          
+            <video autoplay muted loop playsinline>
+              <source src="videos/europe-story-2.mp4" type="video/mp4" />
+            </video>
+            
+
+            <div class="story-gallery-caption">
+             <h4>The self that appears between moments</h4>
+         <p>
+        Travel sometimes reveals not a new place, but a quieter version of you.
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-closing">
+          <p>
+            Some journeys are remembered for what happened. Others are remembered for how the world felt while you were inside it.
+            This one belonged to breath, snow, quiet, and the kind of beauty that asks for nothing except your attention.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-cta">
+      <div class="container">
+        <div class="story-cta-box">
+          <p class="eyebrow">Begin Where It Feels Right</p>
+          <h2>Want a journey that feels like this?</h2>
+          <p>
+            Tell us what kind of atmosphere you’re searching for — stillness, scale, reflection, romance,
+            or something you don’t fully know how to name yet — and we’ll shape it with care.
+          </p>
+          <a href="index.html#contact" class="primary-button">Start Your Journey</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Kaya-Kiya Voyages — stories, journeys, and moments that stay.</p>
+    </div>
+  </footer>
+</body>
+</html>
